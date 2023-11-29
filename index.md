@@ -51,6 +51,9 @@ savejson(p, joinpath(@OUTPUT, "plotlyex.json"))  # savejson is an alternative to
 \fig{plotlyex}
 
 
+## kdfj
+\fig{plotlyex01}
+
 ## teble of contents
 
 Texto x para mostrar
