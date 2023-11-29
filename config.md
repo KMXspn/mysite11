@@ -5,7 +5,7 @@ Add here global page variables to use throughout your website.
 author = "RC"
 mintoclevel = 2
 
-hasplotly = true
+hasplotly = false
 
 # prepath = "mysite11"
 
