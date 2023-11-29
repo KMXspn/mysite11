@@ -1,6 +1,7 @@
 @def title = "My Franklin Example"
 @def tags = ["syntax", "code"]
-
+@def hascode = true 
+@def hasplotly = true
 
 # Hola 
 \toc
