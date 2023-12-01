@@ -5,7 +5,7 @@ Add here global page variables to use throughout your website.
 author = "RC"
 mintoclevel = 2
 
-hasplotly = false
+
 
 # prepath = "mysite11"
 
@@ -25,6 +25,8 @@ website_title = "Franklin Template"
 website_descr = "Example website using Franklin"
 website_url   = "https://tlienart.github.io/FranklinTemplates.jl/"
 +++
+
+@def hasplotly = false
 
 <!--
 Add here global latex commands to use throughout your pages.
