@@ -6,6 +6,9 @@
 # Hola 
 \toc
 
+## imagen svg
+![Hamburger](/assets/Graf_Vars.svg)
+
 ## plt off
 
 ~~~
@@ -36,6 +39,16 @@ plt    = plot(data, layout)
 fdplotly(json(plt)) # hide
 ```
 \textoutput{ex1}
+
+## otro más
+```julia:ex134
+using PlotlyJS
+plt = batman()
+fdplotly(json(plt), style="width:400px;height:250px;margin-left:auto;margin-right:auto;")
+
+```
+\textoutput{ex134}
+
 
 ## plty2
 ```julia:ex2

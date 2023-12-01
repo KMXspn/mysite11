@@ -5,12 +5,85 @@ date = Date(2019, 3, 22)
 rss = "A short description of the page which would serve as **blurb** in a `RSS` feed; you can use basic markdown here but the whole description string must be a single line (not a multiline string). Like this one for instance. Keep in mind that styling is minimal in RSS so for instance don't expect maths or fancy styling to work; images should be ok though: ![](https://upload.wikimedia.org/wikipedia/en/3/32/Rick_and_Morty_opening_credits.jpeg)"
 
 tags = ["syntax", "code"]
+hasplotly = true
+hascode = true
 +++
 
 
-# Working with code blocks
+## Offline
+~~~
+<div id="tester" style="width:600px;height:350px;"></div>
 
-\toc
+<script>
+    TESTER = document.getElementById('tester');
+    Plotly.newPlot( TESTER, [{
+    x: [1, 2, 3, 4, 5],
+    y: [1, 2, 4, 8, 16] }], {
+    margin: { t: 0 } } );
+</script>
+~~~
+
+## Online 1
+```julia:ex1
+using PlotlyJS
+z =  [10     10.625  12.5  15.625  20
+     5.625  6.25    8.125 11.25   15.625
+     2.5    3.125   5.    8.125   12.5
+     0.625  1.25    3.125 6.25    10.625
+     0      0.625   2.5   5.625   10]
+
+data   = contour(; z=z)
+layout = Layout(; title="Basic Contour Plot")
+plt    = plot(data, layout)
+
+fdplotly(json(plt)) # hide
+```
+\textoutput{ex1}
+
+### barra punto
+```julia:./et01
+using PlotlyJS
+z =  [10     10.625  12.5  15.625  20
+     5.625  6.25    8.125 11.25   15.625
+     2.5    3.125   5.    8.125   12.5
+     0.625  1.25    3.125 6.25    10.625
+     0      0.625   2.5   5.625   10]
+
+data   = contour(; z=z)
+layout = Layout(; title="Basic Contour Plot")
+plt    = plot(data, layout)
+
+fdplotly(json(plt)) # hide
+```
+\textoutput{./et01}
+
+
+## ONline 2
+```julia:ex2
+using PlotlyJS
+p=plot(
+     scatter(x=1:10, y=rand(10), mode="markers"),
+     Layout(title="Responsive Plots")
+     )
+savejson(p, joinpath(@OUTPUT, "plotlyex.json"))  # savejson is an alternative to savefig # hide
+# PlotlyBase.json (also exported by PlotlyJS) often gives a smaller json compared to PlotlyJS.savefig # hide
+```
+
+\fig{plotlyex}
+
+### barrapunto
+```julia:ex2
+using PlotlyJS
+p=plot(
+     scatter(x=1:10, y=rand(10), mode="markers"),
+     Layout(title="Responsive Plots")
+     )
+savejson(p, joinpath(@OUTPUT, "plotlyex.json"))  # savejson is an alternative to savefig # hide
+# PlotlyBase.json (also exported by PlotlyJS) often gives a smaller json compared to PlotlyJS.savefig # hide
+```
+
+\fig{plotlyex}
+
 
 ## Live evaluation of code blocks
 
